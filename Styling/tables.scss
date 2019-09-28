@@ -1,0 +1,808 @@
+// $deepPurple: #292531;
+// $deepBlue:#445D7D;
+// $softBlue:#7F95AD;
+// $softOrange:#C1A782;
+// $deepOrange:#C7814A;
+
+$darkBack:#222831;
+$greyBack:#393e46;
+$flairColor:#d65a31;
+$lightBack:#eeeeee;
+
+$valiantBlue:#2A6374;
+$radiantWhite:#FFFFF1;
+$darkHorse:#090F1D;
+$goldenMoment:#D1BB68;
+$championSteel:#8B8E85;
+
+$storeFont:"Monotype Corsiva";
+$talkFont:"Lucida Handwriting";
+$baseFont:"Verdana";
+
+$deleteIcon:"https://res.cloudinary.com/metaverse/image/upload/v1548289539/icons8-delete-48.png";
+$loadIcon:"https://img.icons8.com/material-rounded/96/000000/load-resume-template--v1.png";
+$saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
+
+#shopBanner{
+  height:15vh;
+  background-color:$darkHorse;
+  #bannerImage{
+    background-image:url("https://res.cloudinary.com/metaverse/image/upload/v1541010546/Avatars/Higgsy/side_higgsLaugh.png");
+    background-size:100%  100%;
+    background-repeat:no-repeat;
+    border-radius:50%;
+    border:4px groove $championSteel;
+
+  }
+  #bannerTitle{
+  font-size:3.5em;
+  overflow:hidden;
+  font-family:$storeFont;
+  color:$goldenMoment;
+  }
+  #bannerTagline{
+    font-family:$talkFont;
+    color:$goldenMoment;
+  }
+}
+#footer{
+  background-color:$valiantBlue;
+  color:$darkHorse;
+
+  a{
+    color:$radiantWhite;
+  }
+}
+.physicalButton{
+
+}
+
+.physicalButton:active{
+  box-shadow:inset 0 0 10px #000000;
+}
+
+.sunkenButton{
+  box-shadow:inset 0 0 10px #000000;
+  background-color:$goldenMoment !important;
+}
+
+.rollingButton{
+  height:100%;
+  width:95%;
+  background-color:$radiantWhite;
+  color:$goldenMoment;
+  font-family:$storeFont;
+  font-size:6vh;
+
+}
+
+#workspaceContainer{
+  height:90vh;
+  width:80vw;
+  margin-left:10vw;
+  margin-top:5vh;
+  margin-bottom:5vh;
+
+  position:relative;
+  border:5px outset $radiantWhite;
+  background-color:$darkHorse;
+  color:$radiantWhite;
+  #tabRow{
+    width:100%;
+    height:10%;
+    min-height:50px;
+    display:flex;
+    flex-wrap:wrap;
+    border:2px solid black;
+    .tabButton{
+      font-family:$storeFont;
+      font-size:2em;
+      background-color:$valiantBlue;
+      color:$radiantWhite;
+      flex-grow:1;
+    }
+  }
+  #swapOutSegment{
+    width:100%;
+    height:90%;
+    position:relative;
+    //rollTableTab
+    #resultsRow{
+      border:2px solid black;
+      height:85%;
+      width:100%;
+      display:flex;
+      #textContent{
+        border:2px solid black;
+        height:100%;
+        width:75%;
+        #textHeader{
+          font-size:2em;
+          height:15%;
+          width:100%;
+          text-align:center;
+        }
+        #textBulk{
+          padding-left:10px;
+          height:85%;
+          width:100%;
+        }
+
+      }
+      #imageContent{
+        border:2px solid black;
+        width:25%;
+        height:100%;
+        position:relative;
+        #displayedImage{
+          height:90%;
+          width:100%;
+          border:2px solid black;
+          background-image:url("https://res.cloudinary.com/metaverse/image/upload/v1569528583/Avatars/Higgsy/higgsyErrMessages/NoImgFound.png");
+          background-size:100% 100%;
+        }
+        #imageCaption{
+          height:10%;
+          width:80%;
+          // border:2px solid black;
+          text-align:center;
+          margin-left:10%;
+        }
+        .galleryBtn{
+          height:10%;
+          width:10%;
+          position:absolute;
+          bottom:0;
+        }
+        #galleryLeftBtn{
+
+          left:0;
+
+        }
+        #galleryRightBtn{
+
+          right:0;
+
+        }
+
+      }
+    }
+
+    #generationRow{
+      height:15%;
+      width:100%;
+      border:2px solid black;
+      display:flex;
+      #rollAgainSlot{
+        border:2px solid black;
+        height:100%;
+        width:75%;
+        position:relative;
+        #tableRollButton{
+          height:100%;
+          width:95%;
+        }
+      }
+      #alterPoolSlot{
+        border:2px solid black;
+        height:100%;
+        width:25%;
+      }
+
+    }
+    //editTables
+    #editTableTitleRow{
+      display:flex;
+      border-bottom:5px double $goldenMoment;
+      height:15%;
+      #editTableTitle{
+        width:75%;
+        height:100%;
+        text-align:center;
+        font-size:1.5em;
+      }
+      #editTableSelect{
+        text-align:center;
+        width:25%;
+        height:100%;
+        border: 2px solid black;
+
+      }
+    }
+
+    #editContentColumn{
+      position:absolute;
+      top:15%;
+      left:0;
+      border: 2px solid black;
+      height:85%;
+      width:75%;
+      #editCellTitle{
+        width:100%;
+        height:10%;
+        border: 2px solid black;
+      }
+      #editTableDescription{
+        width:100%;
+        height:60%;
+        border: 2px solid black;
+        resize: none;
+        margin: 0;
+        vertical-align: bottom;
+      }
+      #editImgGallery{
+        width:100%;
+        height:30%;
+        border: 2px solid black;
+
+        .imgSlot{
+          width:100%;
+          height:25%;
+          border: 1px solid pink;
+          display:flex;
+          .imgPreview{
+            height:100%;
+            width:25px;
+          }
+          .imgURLSlot{
+            height:100%;
+            width:20%;
+            flex-grow:1;
+          }
+          .imgCaptionSlot{
+            height:100%;
+            width:40%;
+            flex-grow:1;
+          }
+          .imgCloseButton{
+            height:25px;
+            width:25px;
+            background-color:grey;
+            background-image:url("https://res.cloudinary.com/metaverse/image/upload/v1548289539/icons8-delete-48.png");
+            background-size:contain;
+            background-repeat:no-repeat;
+            border:1px solid black;
+          }
+        }
+      }
+    }
+
+    #editSelectColumn{
+      position:absolute;
+      top:15%;
+      right:0;
+      border: 2px solid black;
+      height:85%;
+      width:25%;
+      #editCellSelect{
+        width:100%;
+        height:60%;
+
+      }
+      #editTableTags{
+        width:100%;
+        height:40%;
+
+        #tableTags{
+          width:100%;
+          height:100%;
+        }
+      }
+    }
+
+    //Construction roll
+    #magicScrollContent{
+      position:absolute;
+      top:0;
+      left:0;
+      width:75%;
+      height:90%;
+      padding:15px;
+      border:2px solid black;
+      resize: none;
+    }
+    #magicScrollDecoded{
+      position:absolute;
+      top:0;
+      left:0;
+      width:75%;
+      height:90%;
+      padding:15px;
+      border:2px solid black;
+      z-index:2;
+      background-color:grey;
+      white-space: pre-wrap;
+      transition:opacity .75s;
+    }
+    #magicScrollTools{
+      position:absolute;
+      top:0;
+      right:0;
+      width:25%;
+      height:100%;
+      display:flex;
+      flex-direction: column;
+      border:2px solid black;
+      justify-content: space-evenly;
+      padding-left:2.5%;
+
+      #magicScrollTemplates{
+        width:95%;
+        height:45%;
+        border:2px outset $radiantWhite;
+        display:flex;
+        flex-direction: column;
+
+
+
+        #magicScrollTemplatesBanner{
+          height:50px;
+          width:100%;
+          background-color:$darkHorse;
+          color:$goldenMoment;
+          flex-shrink:0;
+          text-align:center;
+          font-size:2.25rem;
+          font-family:$storeFont;
+        }
+
+        .magicScrollTemplateDivider{
+          height:35px;
+          width:100%;
+          background-color:$greyBack;
+          flex-shrink:0;
+        }
+
+        .magicScrollTemplateSlot{
+          height:35px;
+          width:100%;
+          display:flex;
+          border:3px solid silver;
+          flex-shrink:0;
+          background-color:$championSteel;
+
+          .magicScrollTemplateTitle{
+            width:60%;
+            flex-grow:1;
+          }
+          .deleteTemplateButton{
+            width:30px;
+            max-width:10%;
+            height:30px;
+            background-color:red;
+            background-image:url($deleteIcon);
+            background-size:100% 100%;
+
+          }
+          .saveToTemplateButton{
+            width:30px;
+            max-width:10%;
+            height:30px;
+            background-color:green;
+            background-image:url($saveIcon);
+            background-size:100% 100%;
+          }
+          .loadFromTemplateButton{
+            width:30px;
+            max-width:10%;
+            height:30px;
+            background-color:gold;
+            background-image:url($loadIcon);
+            background-size:100% 100%;
+          }
+        }
+      }
+      #magicScrollReference{
+        width:95%;
+        height:45%;
+        border:4px outset $championSteel;
+        display:flex;
+        flex-direction: column;
+        background-color:$radiantWhite;
+        color:$darkHorse;
+
+        #magicScrollReferenceBanner{
+          height:50px;
+          width:100%;
+          background-color:$valiantBlue;
+          color:$radiantWhite;
+          flex-shrink:0;
+          text-align:center;
+          font-size:2.25rem;
+          font-family:$storeFont;
+        }
+        #magicScrollLabels{
+          height:2em;
+          width:100%;
+          border:1px solid $darkHorse;
+          display:flex;
+          flex-shrink:0;
+
+          #inputLabel{
+            height:100%;
+            width:25%;
+            border:1px groove $valiantBlue;
+            text-align:center;
+            font-weight:bold;
+          }
+          #blurbLabel{
+            height:100%;
+            width:75%;
+            border:1px groove $valiantBlue;
+            text-align:center;
+            font-weight:bold;
+          }
+        }
+        .magicScrollReferenceSlot{
+          height:75px;
+          width:100%;
+          display:flex;
+
+          flex-shrink:0;
+
+          color:$darkHorse;
+
+          .magicScrollReferenceWord{
+            height:100%;
+            width:25%;
+            border:1px groove $valiantBlue;
+            cursor:pointer;
+          }
+
+          .magicScrollReferenceBlurb{
+            height:100%;
+            width:75%;
+            border:1px groove $valiantBlue;
+          }
+        }
+      }
+    }
+
+    #magicScrollButtonRow{
+      position:absolute;
+      left:0;
+      bottom:0;
+      height:10%;
+      width:75%;
+      display:flex;
+      border:2px solid black;
+
+      #magicScrollRollBox{
+        height:100%;
+        width:100%;
+        border:2px solid black;
+        #decodeScrollSlot{
+          height:100%;
+          width:100%;
+          background-color:black;
+          #decodeScrollButton{
+
+          }
+        }
+      }
+
+      // #magicScrollStorageBox{
+      //   height:100%;
+      //   width:25%;
+      //   display:flex;
+      //   border:2px solid black;
+      // }
+    }
+
+    //define magic words
+    #magicWordSelectRow{
+      height:15%;
+      width:100%;
+      border:2px solid black;
+      display:flex;
+
+      #magicWordTitleInput{
+        height:100%;
+        width:75%;
+        border:2px solid black;
+      }
+      #magicWordSelectWordSection{
+        height:100%;
+        width:25%;
+        border:2px solid black;
+        overflow:auto;
+        #magicWordSelect{
+          width:100%;
+        }
+      }
+
+
+    }
+
+    #magicWordMeaningSection{
+      position:absolute;
+      bottom:0;
+      left:0;
+      height:85%;
+      width:75%;
+      border:2px solid black;
+
+      #magicWordMeaningInput{
+        width:100%;
+        height:50%;
+      }
+    }
+    #magicWordMeaningSelectionSection{
+      position:absolute;
+      bottom:0;
+      right:0;
+      height:85%;
+      width:25%;
+      border:2px solid black;
+      #magicWordMeaningSelect{
+        width:100%;
+        height:40%;
+      }
+      #magicWordBlurbInput{
+        width:100%;
+      }
+    }
+
+    //import tables
+    #importedText{
+      width:80%;
+      margin-left:10%;
+    }
+    #importedTags{
+      width:40%;
+      margin-left:10%;
+    }
+  }
+
+
+}
+
+#imgSelectContainer{
+  padding:0;
+  height:1300px;
+
+  #catalogueName{
+    // max-height:10%;
+    // line-height:2em;
+
+    // font-size:1.5em;
+    // overflow:hidden;
+    // font-family:$storeFont;
+    // color:$flairColor;
+    // text-align:center;
+    background-color:$darkBack;
+    font-family:$storeFont;
+    font-size:2em;
+    text-align:center;
+    color:$flairColor;
+  }
+
+  #catalogueTags{
+    height:15%;
+    background-color:$greyBack;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    white-space: nowrap;
+    color:$lightBack;
+  }
+  #catalogueTags:hover{
+    overflow-x: auto;
+  }
+
+  #catalogueGrid{
+    height:35%;
+    background-color:$darkBack;
+    overflow:hidden;
+  }
+  #catalogueGrid:hover{
+    overflow:auto;
+  }
+  #catalogueDescription{
+    height:25%;
+    background-color:$greyBack;
+    color:$lightBack;
+    border:3px solid black;
+    border-radius:5px;
+    overflow:auto;
+  }
+}
+input[type=number]{
+  width:4em;
+}
+// textarea{
+//   width:100%;
+//   height:6em;
+// }
+//
+// select{
+//   width:5em;
+// }
+
+
+
+select[name^=tables]{
+  width:100%;
+  height:90%;
+  min-height:1.5em;
+}
+
+select[name^=tablesEditVer]{
+  width:100%;
+  height:1.5em;
+}
+
+select[name^=tableCells]{
+  width:100%;
+  min-height:5.5em;
+  height:40%
+}
+
+textarea{
+  white-space: pre-wrap;
+  vertical-align: bottom;
+}
+
+body{
+  background-image:url("https://res.cloudinary.com/metaverse/image/upload/v1569440023/Domigorgon/the_final_battle_by_domigorgon_da46xh2-fullview.jpg");
+  background-size: 100% 100%;
+  font-family:$baseFont;
+  button:hover{
+    cursor:pointer;
+  }
+}
+
+.badge{
+  line-height:1.1;
+  padding: .20em .2em;
+  border:2px solid black;
+  background-color:$lightBack;
+  color:black;
+
+}
+// .badge:hover{
+//   cursor:pointer;
+//   border-color:white;
+//   color:white;
+// }
+
+.hoverFlow{
+  overflow:hidden;
+}
+
+.hoverFlow:hover{
+  overFlow:auto;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.invisible{
+  opacity:0 !important;
+  height:0 !important;
+}
+
+.closableDiv{
+  position:relative;
+
+}
+
+.closeButton{
+  opacity:0;
+  position:absolute;
+  top:10px;
+  right:10px;
+  height:25px;
+  width:25px;
+  background-color:grey;
+  background-image:url($deleteIcon);
+  background-size:contain;
+  background-repeat:no-repeat;
+  border:1px solid black;
+  transition:opacity .5s;
+  z-index:5;
+
+}
+
+.closableDiv:hover{
+  .closeButton{
+    opacity:1;
+  }
+}
+.closeButton:hover{
+  cursor:pointer;
+}
+
+.filterToggle{
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  height:0;
+  top: 50%;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  label{
+    background-color:grey;
+    border-radius:5%;
+    -webkit-box-shadow: 0px 5px 8px 3px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 5px 8px 3px rgba(0,0,0,0.75);
+    box-shadow: 0px 5px 8px 3px rgba(0,0,0,0.75);
+    cursor: pointer;
+  }
+  input:checked+label{
+    background-color:$flairColor;
+    outline-style: groove;
+    outline-color: white;
+    outline-width:2px;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+  }
+}
+
+
+// <div>
+//      <button class="iconedButton">Do The Thing!</button>
+//      <img src="https://i.pinimg.com/originals/7f/cd/72/7fcd7299c9544d6af4ff0a1accebbf85.jpg" class="buttonIcon"/>
+// </div>
+.iconedButton{
+  margin-left:5%;
+  padding-left:5%;
+}
+
+.iconedButton:active{
+  background-color:$championSteel;
+}
+
+
+
+.iconedButton:hover + .buttonIcon{
+  box-shadow:inset 0 0 15% #000000;
+  cursor:pointer;
+  border:2px solid $radiantWhite;
+}
+.iconedButton:active + .buttonIcon{
+  border:4px solid $radiantWhite;
+}
+
+.buttonIcon{
+  position:absolute;
+  width:10%;
+  height:100%;
+  clip-path: ellipse(50% 50% at 50% 50%);
+  top:0;
+  left:0;
+  background-color:$valiantBlue;
+}
+
+.buttonIcon:focus{
+ border:4px solid $radiantWhite;
+}
+
+.buttonIcon:hover{
+  box-shadow:inset 0 0 15% #000000;
+  cursor:pointer;
+  border:2px solid $radiantWhite;
+}
+
+#alertBanner{
+  height:0;
+  position:fixed;
+  width:100%;
+  bottom:0;
+  text-align:center;
+  background-color:black;
+  opacity:.8;
+  color:white;
+  transition: height 2s;
+}
+
+.activeAlert{
+  height:5vh !important;
+}

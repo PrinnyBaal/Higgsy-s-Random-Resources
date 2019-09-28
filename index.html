@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Higgsy's Random Resources</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
+  <link rel="stylesheet" type="text/css" href="Styling/tables.css">
+  <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  <script src="src/ctrl/initialize.js"></script>
+  <script src="src/model/sheetStats.js"></script>
+  <script src="src/view/sheetLogic.js"></script>
+
+  <script>
+   window.addEventListener( "load", sheetProj.view.sheetLogic.setupUserInterface);
+  </script>
+</head>
+
+<style>
+</style>
+<body>
+  <div  class="container-fluid pt-2" id="shopBanner">
+    <div class="row  h-75" >
+      <div class="col-1 offset-1" id="bannerImage">
+
+      </div>
+      <div class="col my-auto" id="bannerTitle">
+        Higgsy's Random Resources
+      </div>
+    </div>
+    <div class="row h-25">
+      <div class="offset-4 col-3" >
+        <p id="bannerTagline">"For that Wild Mage in your life!"</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="workspaceContainer">
+    <div id="tabRow">
+      <button class="tabButton physicalButton sunkenButton" onclick="tableRoll.launchTab();setSunkenEffect(event.target)">Roll On Table</button>
+      <button class="tabButton physicalButton" onclick="tableEdit.launchTab();setSunkenEffect(event.target)">Edit Tables</button>
+      <button class="tabButton physicalButton" onclick="magicScroll.launchTab();setSunkenEffect(event.target)">Magic Scroll</button>
+      <button class="tabButton physicalButton" onclick="magicWord.launchTab();setSunkenEffect(event.target)" >Edit Magic Words</button>
+      <button class="tabButton physicalButton" onclick="importTable.launchTab();setSunkenEffect(event.target)">Import</button>
+    </div>
+    <div id="swapOutSegment">
+
+
+  </div>
+</div>
+
+  <div id="footer"  class="container-fluid">
+
+      <div class="row h-100 pb-4">
+        <div class="col" >
+          <br>
+          <p><b>Steven Sonson</b></p>
+          <hr>
+          <p><emsp>ssonson@alumni.nd.edu</p>
+          <p><emsp>Bridgport, Connecticut</p>
+          <hr>
+          <p><b>Other Higgsy DnD Tools</b></p>
+          <a href="https://prinnybaal.github.io/Higgsy-s-U-Craft/">Higgsy's U-Craft (Magic Item Cost Estimation)</a><br>
+          <a href="https://prinnybaal.github.io/Higgsy-sModularSheet/">Higgsy's Modular Character Sheet[Beta]</a>
+          <a href="https://prinnybaal.github.io/Higgsy-sCardCobbler/">Higgsy's Card Cobbler</a>
+          <hr>
+          <button onclick="resetStorage()">Reset To Default</button>
+        </div>
+        <div class="col" >
+          <br>
+          <p><b>Credits</b></p>
+          <hr>
+          <p><emsp>Site Mascot Higgsy, originally sprite by: <a href="https://lemmasoft.renai.us/forums/viewtopic.php?f=52&t=48688&p=501514&hilit=female#p501514">GrammaHobbes</a></p>
+          <p><emsp>Card Background from sample item cards: <a href="https://www.reddit.com/r/DnD/comments/7c9hge/oc_really_proud_of_my_item_cards_bonus_template/">u/Bernalestomas</a></p>
+          <p><emsp>Site Background: <a href="https://www.deviantart.com/domigorgon/art/The-Final-Battle-611703542">"Final Battle" By Domigorgon</a></p>
+          <a href="https://icons8.com/">All Icons, including icons on default card art, by Icons8 which gets my wholehearted reccomendation</a>
+          <p>Many redditors posts were used as samples here and I've tried to include links to their posts wherever they're used.  If I missed any please let me know!</p>
+          <p>And users like you.  Thank you!</p>
+
+
+        </div>
+      </div>
+  </div>
+  <div id="alertBanner"></div>
+</body>

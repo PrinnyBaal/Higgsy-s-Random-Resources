@@ -130,10 +130,11 @@ let tablePool=[
         "content": "Glasses of Lightvision- When worn, the user has the effect of darkvision when in bright light (can see black and white for 60ft).",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source:https://www.reddit.com/r/DnDBehindTheScreen/comments/a2e93s/worthless_fun_magic_items/"]
   },
   {
-    "title": "FINISH HIM",
+    "title": "Killing Blow Descriptions",
     "cells": [
       {
         "title": 0,
@@ -270,7 +271,8 @@ let tablePool=[
         "content": "Slash, crack or otherwise open their ribcage. Yes, we are doing it. It wouldn’t be a needlessly violent list without it. Once it's open grab their still beating heart and tear it out. Bonus points if you throw an edgy line that makes someone laugh.",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source:https://www.reddit.com/r/DnDBehindTheScreen/comments/d96bh9/finish_him_brutal_and_violent_finishers_for_when/"]
   },
   {
     "title": "70+ Magic Items",
@@ -655,7 +657,8 @@ let tablePool=[
         "content": "Searingblade: This fine shortsword was forged by the Azir of the Fireplane, when wielded it’s user gains resistance to fire damage. Every sunrise the sword gains 1d4 charges to a maximum of 4. You can expend a charge to heat the blade of the Searingblade, the core the of blade glows a vibrant yellow melding to a flaming red on the edges. When you expend a charge to heat the blade it deals an additional 1d8 fire damage, the blade is h",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source:https://www.reddit.com/r/DnDBehindTheScreen/comments/8yt8ec/70_badly_written_and_homebrewed_magic_items/"]
   },
   {
     "title": "100 Trinkets",
@@ -1160,7 +1163,8 @@ let tablePool=[
         "content": "100- A noble’s money pouch, containing 25 gp. In addition, you may roll again to get another item.",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source: https://www.reddit.com/r/DnDBehindTheScreen/comments/8i23po/20_magic_items_and_100_trinkets_to_put_in_dungeons/"]
   },
   {
     "title": "Obvious Traps",
@@ -1255,7 +1259,8 @@ let tablePool=[
         "content": "A large block of ice sits melting in the middle of the room.",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source: https://www.reddit.com/r/DnDBehindTheScreen/comments/8q1pyc/list_of_obvious_traps_that_may_or_may_not_be_traps/"]
   },
   {
     "title": "Odd Plot Hooks",
@@ -1320,7 +1325,8 @@ let tablePool=[
         "content": "An immortal creature that cannot move is found by the party in a closet. It spreaks of it's vast knowledge of their location.... unfortunately this makes it the morgan freemen of a 10x10 foot closet. It knows nothing outside this closet, but it knows everything about the closet.",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source: https://www.reddit.com/r/DnDBehindTheScreen/comments/6l9o5c/12_odd_plot_hooks/"]
   },
   {
     "title": "Spooky Haunt Effects",
@@ -1425,7 +1431,8 @@ let tablePool=[
         "content": ": The party's light source(s) goes out.",
         "imgGallery": []
       }
-    ]
+    ],
+    "tags":["Source: https://www.reddit.com/r/BehindTheTables/comments/d8su5e/were_getting_into_spooky_season_so_here_is_a_d20/"]
   },
 ];
 

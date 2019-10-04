@@ -1,6 +1,7 @@
 #shopBanner {
   height: 15vh;
   background-color: #090F1D;
+  overflow: hidden;
 }
 #shopBanner #bannerImage {
   background-image: url("https://res.cloudinary.com/metaverse/image/upload/v1541010546/Avatars/Higgsy/side_higgsLaugh.png");
@@ -77,79 +78,82 @@
   height: 90%;
   position: relative;
 }
-#workspaceContainer #swapOutSegment #resultsRow {
+#workspaceContainer #swapOutSegment #textContent {
+  position: absolute;
   border: 2px solid black;
   height: 85%;
-  width: 100%;
-  display: flex;
-}
-#workspaceContainer #swapOutSegment #resultsRow #textContent {
-  border: 2px solid black;
-  height: 100%;
   width: 75%;
+  top: 0;
+  left: 0;
 }
-#workspaceContainer #swapOutSegment #resultsRow #textContent #textHeader {
-  font-size: 2em;
+#workspaceContainer #swapOutSegment #textContent #textHeader {
+  font-size: 2.5em;
   height: 15%;
   width: 100%;
   text-align: center;
 }
-#workspaceContainer #swapOutSegment #resultsRow #textContent #textBulk {
+#workspaceContainer #swapOutSegment #textContent #textBulk {
   padding-left: 10px;
   height: 85%;
   width: 100%;
+  font-size: 2rem;
 }
-#workspaceContainer #swapOutSegment #resultsRow #imageContent {
+#workspaceContainer #swapOutSegment #imageContent {
   border: 2px solid black;
   width: 25%;
-  height: 100%;
-  position: relative;
+  height: 75%;
+  top: 0;
+  right: 0;
+  position: absolute;
 }
-#workspaceContainer #swapOutSegment #resultsRow #imageContent #displayedImage {
+#workspaceContainer #swapOutSegment #imageContent #displayedImage {
   height: 90%;
   width: 100%;
   border: 2px solid black;
   background-image: url("https://res.cloudinary.com/metaverse/image/upload/v1569528583/Avatars/Higgsy/higgsyErrMessages/NoImgFound.png");
   background-size: 100% 100%;
 }
-#workspaceContainer #swapOutSegment #resultsRow #imageContent #imageCaption {
+#workspaceContainer #swapOutSegment #imageContent #imageCaption {
   height: 10%;
   width: 80%;
   text-align: center;
   margin-left: 10%;
 }
-#workspaceContainer #swapOutSegment #resultsRow #imageContent .galleryBtn {
+#workspaceContainer #swapOutSegment #imageContent .galleryBtn {
   height: 10%;
   width: 10%;
   position: absolute;
   bottom: 0;
 }
-#workspaceContainer #swapOutSegment #resultsRow #imageContent #galleryLeftBtn {
+#workspaceContainer #swapOutSegment #imageContent #galleryLeftBtn {
   left: 0;
 }
-#workspaceContainer #swapOutSegment #resultsRow #imageContent #galleryRightBtn {
+#workspaceContainer #swapOutSegment #imageContent #galleryRightBtn {
   right: 0;
 }
-#workspaceContainer #swapOutSegment #generationRow {
+#workspaceContainer #swapOutSegment #rollAgainSlot {
+  border: 2px solid black;
   height: 15%;
-  width: 100%;
-  border: 2px solid black;
-  display: flex;
-}
-#workspaceContainer #swapOutSegment #generationRow #rollAgainSlot {
-  border: 2px solid black;
-  height: 100%;
   width: 75%;
-  position: relative;
+  bottom: 0;
+  left: 0;
+  position: absolute;
 }
-#workspaceContainer #swapOutSegment #generationRow #rollAgainSlot #tableRollButton {
+#workspaceContainer #swapOutSegment #rollAgainSlot #tableRollButton {
   height: 100%;
   width: 95%;
 }
-#workspaceContainer #swapOutSegment #generationRow #alterPoolSlot {
+#workspaceContainer #swapOutSegment #alterPoolSlot {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   border: 2px solid black;
-  height: 100%;
+  height: 25%;
   width: 25%;
+  transition: height 1s;
+}
+#workspaceContainer #swapOutSegment .expanded {
+  height: 100% !important;
 }
 #workspaceContainer #swapOutSegment #editTableTitleRow {
   display: flex;
@@ -516,7 +520,8 @@ input[type=number] {
 select[name^=tables] {
   width: 100%;
   height: 90%;
-  min-height: 1.5em;
+  min-height: 1.5rem;
+  font-size: 1.5rem;
 }
 
 select[name^=tablesEditVer] {
@@ -682,6 +687,23 @@ body button:hover {
 
 .activeAlert {
   height: 5vh !important;
+}
+
+@media screen and (max-width: 1024px) {
+  #workspaceContainer {
+    height: 110vh;
+    width: 100vw;
+    margin: 0;
+  }
+}
+@media (false) {
+  .hoverFlow {
+    overflow: auto;
+  }
+
+  .closeButton {
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=tables.css.map */

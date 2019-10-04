@@ -72,7 +72,8 @@ let tableRoll={
     let tableSelects=``;
     let tablePool=data.getTablePool();
     let settings=data.tableRollSettings;
-    let swapOutSegment=`<div id="resultsRow">
+    let swapOutSegment=`
+
       <div id="textContent">
         <div class="hoverFlow" id="textHeader"></div>
         <div class="hoverFlow" id="textBulk"></div>
@@ -84,12 +85,11 @@ let tableRoll={
         <button disabled onclick="tableRoll.moveGallery(1)" class="galleryBtn" id="galleryRightBtn">&#9654;</button>
       </div>
 
-    </div>
-    <div id="generationRow">
+
+
       <div class="hoverFlow" id="rollAgainSlot"><button id="tableRollButton" class="iconedButton rollingButton" onclick="tableRoll.rollOnTable()">Roll!</button> <img onclick="tableRoll.rollOnTable()" src="https://img.icons8.com/ultraviolet/96/000000/dice.png" class="buttonIcon"/></div>
-      <div class="hoverFlow" id="alterPoolSlot">
-     </div>
-     </div>`;
+      <div class="hoverFlow" id="alterPoolSlot"></div>
+    `;
     $("#swapOutSegment").html(swapOutSegment);
 
 
@@ -98,7 +98,7 @@ let tableRoll={
       tableSelects+=`<option ${settings.selectedTables.includes(index.toString())? "selected":""} value=${index}>${table.title}</option>`;
     });
     alterPoolSlot+=`
-
+    <button style="width:100%; min-height:1em;" onclick="tableRoll.toggleImages()">Toggle Images</button>
     <span>Select One Or More Tables To Roll On:</span>
     <select onchange="tableRoll.changeSelectedTable(this)" name="tables" multiple>
     ${tableSelects}
@@ -107,6 +107,15 @@ let tableRoll={
     $('#alterPoolSlot').html(alterPoolSlot);
 
 
+  },
+  toggleImages:function(){
+    if ($("#imageContent").hasClass("hidden")){
+      $("#imageContent").removeClass("hidden");
+      $("#alterPoolSlot").removeClass("expanded");
+    }else{
+      $("#imageContent").addClass("hidden");
+      $("#alterPoolSlot").addClass("expanded");
+    }
   },
   moveGallery:function(movement){
     let settings=data.tableRollSettings;

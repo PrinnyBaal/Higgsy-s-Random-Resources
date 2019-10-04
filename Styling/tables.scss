@@ -26,6 +26,7 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
 #shopBanner{
   height:15vh;
   background-color:$darkHorse;
+  overflow:hidden;
   #bannerImage{
     background-image:url("https://res.cloudinary.com/metaverse/image/upload/v1541010546/Avatars/Higgsy/side_higgsLaugh.png");
     background-size:100%  100%;
@@ -76,6 +77,9 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
 
 }
 
+
+
+
 #workspaceContainer{
   height:90vh;
   width:80vw;
@@ -94,6 +98,7 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
     display:flex;
     flex-wrap:wrap;
     border:2px solid black;
+
     .tabButton{
       font-family:$storeFont;
       font-size:2em;
@@ -107,17 +112,15 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
     height:90%;
     position:relative;
     //rollTableTab
-    #resultsRow{
-      border:2px solid black;
-      height:85%;
-      width:100%;
-      display:flex;
       #textContent{
+        position:absolute;
         border:2px solid black;
-        height:100%;
+        height:85%;
         width:75%;
+        top:0;
+        left:0;
         #textHeader{
-          font-size:2em;
+          font-size:2.5em;
           height:15%;
           width:100%;
           text-align:center;
@@ -126,14 +129,17 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
           padding-left:10px;
           height:85%;
           width:100%;
+          font-size:2rem;
         }
 
       }
       #imageContent{
         border:2px solid black;
         width:25%;
-        height:100%;
-        position:relative;
+        height:75%;
+        top:0;
+        right:0;
+        position:absolute;
         #displayedImage{
           height:90%;
           width:100%;
@@ -166,30 +172,38 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
         }
 
       }
-    }
 
-    #generationRow{
-      height:15%;
-      width:100%;
-      border:2px solid black;
-      display:flex;
+
+
       #rollAgainSlot{
         border:2px solid black;
-        height:100%;
+        height:15%;
         width:75%;
-        position:relative;
+        bottom:0;
+        left:0;
+        position:absolute;
         #tableRollButton{
           height:100%;
           width:95%;
         }
       }
       #alterPoolSlot{
+        position:absolute;
+        bottom:0;
+        right:0;
         border:2px solid black;
-        height:100%;
+        height:25%;
         width:25%;
+        transition:height 1s;
       }
 
-    }
+      .expanded{
+        // top:0;
+        height:100% !important;
+
+      }
+
+
     //editTables
     #editTableTitleRow{
       display:flex;
@@ -557,6 +571,10 @@ $saveIcon:"https://img.icons8.com/dotty/80/000000/save-as.png";
 
 }
 
+
+
+
+
 #imgSelectContainer{
   padding:0;
   height:1300px;
@@ -623,7 +641,8 @@ input[type=number]{
 select[name^=tables]{
   width:100%;
   height:90%;
-  min-height:1.5em;
+  min-height:1.5rem;
+  font-size:1.5rem;
 }
 
 select[name^=tablesEditVer]{
@@ -805,4 +824,23 @@ body{
 
 .activeAlert{
   height:5vh !important;
+}
+
+@media screen and (max-width: 1024px) {
+  #workspaceContainer {
+    height:110vh;
+    width:100vw;
+    margin:0;
+  }
+
+}
+
+@media (not(hover)) {
+  .hoverFlow{
+    overflow:auto;
+  }
+
+  .closeButton{
+    opacity:1;
+  }
 }

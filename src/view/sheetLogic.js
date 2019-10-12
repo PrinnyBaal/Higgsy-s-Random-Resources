@@ -94,7 +94,6 @@ let tableRoll={
 
 
     tablePool.forEach((table, index)=>{
-      console.log(settings.selectedTables);
       tableSelects+=`<option ${settings.selectedTables.includes(index.toString())? "selected":""} value=${index}>${table.title}</option>`;
     });
     alterPoolSlot+=`
@@ -158,15 +157,15 @@ let tableEdit={
     </div>
     <div id="editSelectColumn">
       <div id="editCellSelect" class="hoverFlow"></div>
-      <div id="editTableTags" class="hoverFlow">
-        Add/Remove table tags (comma seperated):
-        <textarea onchange="tableEdit.editTableTags(event.target.value)" id="tableTags">${activeTable.tags}</textarea>
-      </div>
+
     </div>`;
   $("#swapOutSegment").html(swapOutSegment);
   tableEdit.setSelectCollumn();
   tableEdit.setImgGallery();
-
+  // <div id="editTableTags" class="hoverFlow">
+  //   Add/Remove table tags (comma seperated):
+  //   <textarea onchange="tableEdit.editTableTags(event.target.value)" id="tableTags">${activeTable.tags}</textarea>
+  // </div>
 
   },
   setImgGallery:function(){
@@ -213,16 +212,22 @@ let tableEdit={
         ${tableSelects}
       </select>
     <hr>
-    <button onclick="tableEdit.deleteSelectedTable()" style="background-color:brown">DELETE Selected Table</button>
-    <hr>
+
 
     `;
     cellSlot+=`Then Select A Table Cell To Edit:
-    <select onchange="tableEdit.changeSelectedCell(event.target.value)" multiple="1" name="tableCells">
+    <select onchange="tableEdit.changeSelectedCell(event.target.value)" name="tableCells">
       ${cellSelects}
     </select>
     <hr>
-    <button onclick="tableEdit.deleteSelectedCell()" style="background-color:brown" >DELETE Selected Cell</button>
+    <button onclick="tableEdit.deleteSelectedCell()" style="background-color:brown" >DELETE Selected <b>Cell</b></button>
+    <hr>
+    <button onclick="tableEdit.deleteSelectedTable()" style="background-color:red">DELETE Selected <b>Table</b></button>
+    <hr>
+    <hr>
+    <button onclick="tableEdit.downloadCSV()" style="background-color:cyan" >DOWNLOAD Selected Table (As CSV)</button>
+    <hr>
+    UPLOAD Table(s) (CSV): <input  multiple onchange="tableEdit.importByCSV(this.files)" type="file" id="uploadTable" name="uploadTable" accept="text/csv">
     <hr>`;
 
     $('#editTableSelect').html(alterPoolSlot);
@@ -391,6 +396,103 @@ let tableEdit={
     activeTable.tags=newTags;
     console.log(newTags);
     data.setTablePool(tablePool);
+  },
+  downloadCSV:function(){
+
+
+    let table=data.getTablePool()[data.tableEditSettings.selectedTable];
+    let csv=`"${table.title.toUpperCase()}","Content","Img urls", "Img Captions"\n`;
+
+    table.cells.forEach((cell, index)=>{
+      let imgPack=[];
+      let imgCaps=[];
+      cell.imgGallery.forEach((image)=>{
+        imgPack.push(image.imgURL);
+        imgCaps.push(image.caption);
+      });
+      imgPack=imgPack.join("%IMAGE%");
+      imgCaps=imgCaps.join("%CAPTION%");
+      csv+=`"${cell.title}","${cell.content}","${imgPack}","${imgCaps}"\n`;
+
+    });
+    data.downloadFile(`${table.title}.csv`, csv, "csv");
+  },
+  importByCSV:function(filesGiven){
+    // let catalogueType=$('input[name=catalogueType]:checked').val();
+
+    // let fileGet=$('#catAddByFile').val();
+    // var reader = new FileReader();
+
+
+
+    // getDataUrl(fileGet).then(
+    //     data => testURL(data)
+    //   );
+    for (let i=0, len=filesGiven.length; i<len; i++){
+      console.log(`File ${i}`);
+
+      let reader = new FileReader();
+      console.log("wtf?!");
+      reader.onload = function(e) {
+    // The file's text will be printed here
+          uploadToPool(e.target.result.split(/(?<=")\n(?=")/g));
+        };
+
+        reader.readAsText(filesGiven[i]);
+
+
+    }
+
+    function uploadToPool(newTable){
+
+      let tableStats={
+        title:"None",
+        cells:[],
+      };
+      newTable.forEach((line, index)=>{
+        let lineSplit=line.split(/(?<="),(?=")/g);
+        lineSplit.forEach((line, index)=>{
+          lineSplit[index]=line.substr(1, line.length-2);
+        });
+        let imageGallery=[];
+        let imgSplit, capSplit;
+        if (index===0){
+          tableStats.title=lineSplit[0];
+        }else{
+          imgSplit=lineSplit[2].split(/%IMAGE%/g);
+          capSplit=lineSplit[3].split(/%CAPTION%/g);
+          imgSplit.forEach((url, i)=>{
+            imageGallery.push({imgURL:url, caption:capSplit[i]});
+
+          });
+          tableStats.cells.push(new Construct.TableCell(lineSplit[0],lineSplit[1], imageGallery));
+        }
+
+      });
+
+
+      let tablePool=data.getTablePool();
+      tablePool.push(tableStats);
+      data.setTablePool(tablePool);
+      data.tableEditSettings.selectedTable=tablePool.length-1;
+      tableEdit.launchTab();
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   }
 }
 
@@ -804,6 +906,11 @@ let importTable={
       <textarea id="importedTags"></textarea>
       <br><br>
       <button style="margin-left:10%;" onclick="importTable.importText()">Import!</button>
+      <hr>
+      <hr>
+      Download Backup data as JSON: <button onclick="importTable.getSaveFile()">DOWNLOAD</button>
+      <hr>
+      Replace site-data with a Save File:<input onchange="importTable.loadSaveFile(this.files[0])" type="file" id="uploadSave" name="uploadSave" accept="application/json">
     </div>`;
     $("#swapOutSegment").html(html);
   },
@@ -883,6 +990,44 @@ let importTable={
       fyiUser("Import complete!  Double check in Magic Word Tab!")
     }
 
+  },
+  getSaveFile:function(){
+    let saveFile={
+      tablePool:data.getTablePool(),
+      templates:data.getTemplates(),
+      magicWords:data.getMagicWords(),
+    };
+    data.downloadCleanFile("HT_SaveFile", JSON.stringify(saveFile), "application/json");
+  },
+  loadSaveFile:function(file){
+    if (window.confirm("Are you sure you'd like to overwrite your data with this whatever's in this save file?")){
+      let reader = new FileReader();
+      reader.onload = function(e) {
+    // The file's text will be printed here
+          let saveFile=JSON.parse(e.target.result);
+          console.log(saveFile);
+          if (saveFile.magicWords){
+            data.setMagicWords(saveFile.magicWords);
+          }else{
+            alert("Huh...we weren't able to read the Magic Words on this save file. Scroll down and shoot Steven an e-mail if you think this is a problem on our end.");
+          }
+          if (saveFile.tablePool){
+            data.setTablePool(saveFile.tablePool);
+          }else{
+            alert("Huh...we weren't able to read the Table Pool on this save file. Scroll down and shoot Steven an e-mail if you think this is a problem on our end.");
+          }
+          if (saveFile.templates){
+            data.setTemplates(saveFile.templates);
+          }else{
+            alert("Huh...we weren't able to read the Templates on this save file.  Scroll down and shoot Steven an e-mail if you think this is a problem on our end.");
+          }
+
+
+
+        };
+
+      reader.readAsText(file);
+    }
   }
 }
 

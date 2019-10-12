@@ -26,7 +26,11 @@ let Construct={
     this.word= word ? word:"untitled";
     this.meanings= meanings ? meanings:["Translation"];
     this.blurb= blurb ? blurb:"No description written";
-  }
+  },
+  Table:function(title, cells){
+    this.title=title;
+    this.cells=cells;
+  },
 }
 
 // let tablePool=[{tags:[],title:"beginnerPool", cells:[new Construct.TableCell("number1", "theFirstOption", []), new Construct.TableCell("number2", "thesecondOption", []),
@@ -2527,6 +2531,32 @@ let data={
   magicWordSettings:{
     selectedWord:0,
     selectedMeaning:0
+  },
+  downloadFile:function (filename, text, textType) {
+    if (!textType){textType="plain"};
+    var element = document.createElement('a');
+    element.setAttribute('href', `data:text/${textType};charset=utf-8,` + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
+  },
+  downloadCleanFile:function(filename, text, fileType){
+    if (!fileType){fileType="text/plain"};
+    var element = document.createElement('a');
+    element.setAttribute('href', `data:${fileType};charset=utf-8,` + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+
+    element.style.display = 'none';
+    document.body.appendChild(element);
+
+    element.click();
+
+    document.body.removeChild(element);
   }
 
 }
@@ -2546,6 +2576,15 @@ let ci={
     arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
     return arr; // for testing
   },
+  getUniqueName:function(oldNames, suggestedName){
+    let copyCounter=0;
+    let uniqueName=suggestedName;
+    while (oldNames.includes(uniqueName)){
+      uniqueName=`${suggestedName}${copyCounter}`;
+      copyCounter++;
+    }
+    return uniqueName;
+  }
 }
 
 

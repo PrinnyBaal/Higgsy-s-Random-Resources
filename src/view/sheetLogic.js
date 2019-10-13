@@ -435,7 +435,7 @@ let tableEdit={
       console.log("wtf?!");
       reader.onload = function(e) {
     // The file's text will be printed here
-          uploadToPool(e.target.result.split(/(?:")\n(?=")/g));
+          uploadToPool(e.target.result.split(/\n(?=")/g));
         };
 
         reader.readAsText(filesGiven[i]);
@@ -450,7 +450,7 @@ let tableEdit={
         cells:[],
       };
       newTable.forEach((line, index)=>{
-        let lineSplit=line.split(/(?:"),(?=")/g);
+        let lineSplit=line.split(/,(?=")/g);
         lineSplit.forEach((line, index)=>{
           lineSplit[index]=line.substr(1, line.length-2);
         });
